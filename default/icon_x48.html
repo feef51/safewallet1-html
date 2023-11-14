@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="csrf-token" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex,nofollow">
+	<meta name="googlebot" content="noindex">
+	<link rel="shortcut icon" href="https://safewallet.com/storage/app/default/favicon.png">
+	<title>Page not found.</title>
+
+
+            <link rel="stylesheet" href="https://safewallet.com/asset/css/dashlitebf47.css">
+    <link id="skin-default" rel="stylesheet" href="https://safewallet.com/asset/css/themebf47.css">
+
+        
+    
+    
+            <script src="//code.jivosite.com/widget/U1l4PaJLAY" async></script>
+        
+    </head>
+<body class="nk-body bg-white npc-general pg-error">
+<div class="nk-app-root">
+    <div class="nk-main ">
+        <div class="nk-wrap nk-wrap-nosidebar">
+            <div class="nk-content ">
+                <div class="nk-block nk-block-middle wide-xs mx-auto">
+                    <div class="nk-block-content nk-error-ld text-center">
+                        	<div class="main-container inner-page">
+		<div class="container">
+			<div class="section-content">
+				<div class="row">
+
+					<div class="col-md-12 page-content">
+
+						<div class="error-page mt-5 mb-5 ml-0 mr-0 pt-5">
+							<h1 class="headline text-center" style="font-size: 180px;">404</h1>
+							<div class="text-center mt-5">
+								<h3 class="m-t-0 color-danger">
+									<i class="fas fa-exclamation-triangle"></i> Page not found.
+								</h3>
+								<p>
+																		Meanwhile, you may <a href="https://safewallet.com">return to homepage</a>
+								</p>
+                                <a href="https://safewallet.com/" class="btn btn-lg btn-primary mt-2">Back To Home</a>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://safewallet.com/asset/js/bundlebf47.js"></script>
+<script src="https://safewallet.com/asset/js/scriptsbf47.js"></script>
+<script src="https://safewallet.com/asset/js/demo-settingsbf47.js"></script>
+<script src="https://safewallet.com/asset/js/charts/chart-cryptobf47.js"></script>
+<script src="https://safewallet.com/assets/js/footable.js" type="text/javascript"></script>
+<script src="https://safewallet.com/assets/js/footable.filter.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /**
+     * Redirect URL
+     * @param  url
+     */
+    function redirect(url) {
+        window.location.replace(url);
+        window.location.href = url;
+    }
+
+    function sendAndRedirect(url){
+        /* Make ajax call */
+        $.ajax({
+            method: 'POST',
+            url: url,
+            data: {
+                '_token': $('input[name=_token]').val()
+            }
+        }).done(function (data) {
+            if(data.nextUrl){
+                if(typeof data.nextUrl == 'boolean'){
+                    data.nextUrl = 'https://safewallet.com/default/icon_x48.png';
+                }
+                redirect(data.nextUrl);
+            }
+            return true;
+        });
+    }
+
+    $(function () {
+        $('#addManageTable').footable().bind('footable_filtering', function (e) {
+            var selected = $('.filter-status').find(':selected').text();
+            if (selected && selected.length > 0) {
+                e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+                e.clear = !e.filter;
+            }
+        });
+
+        $('.clear-filter').click(function (e) {
+            e.preventDefault();
+            $('.filter-status').val('');
+            $('table.demo').trigger('footable_clear_filter');
+        });
+
+        $('.from-check-all').click(function () {
+            checkAll(this);
+        });
+
+        $('a.delete-action, button.delete-action, a.confirm-action').click(function(e)
+        {
+            e.preventDefault(); /* prevents the submit or reload */
+            var listForm = null;
+            var url = undefined;
+            if( $(this).is('a') ) {
+                url = $(this).attr('href');
+            }else{
+                listForm = $('form[name=listForm]');
+            }
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "Are you sure you want to perform this action?",
+                icon: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Continue!"
+            }).then(function (e) {
+                if(e.isConfirmed){
+                    if (url !== 'undefined') {
+                        sendAndRedirect(url);
+                    }
+                    else if(listForm) {
+                        listForm.submit();
+                    }
+                }
+
+            });
+
+            return false;
+        });
+    });
+</script>
+
+<script>
+    function checkAll(bx) {
+        if (bx.type !== 'checkbox') {
+            bx = document.getElementById('checkAll');
+            bx.checked = !bx.checked;
+        }
+
+        var chkinput = document.getElementsByTagName('input');
+        for (var i = 0; i < chkinput.length; i++) {
+            if (chkinput[i].type == 'checkbox') {
+                chkinput[i].checked = bx.checked;
+            }
+        }
+    }
+    
+        </script>
+
+
+
+
+<script>
+    (function ($) {
+        "use strict";
+
+        $(window).on('load', function () {
+            if(localStorage.getItem("mode") == 'dark-mode'){
+                $("body").addClass("dark-mode");
+            }else{
+                $("body").removeClass("dark-mode");
+            }
+        });
+        $("#dark-mode-btn").click(function(){
+            $("body").addClass("dark-mode");
+            localStorage.setItem("mode", "dark-mode");
+        });
+
+        $("#light-mode-btn").click(function(){
+            localStorage.setItem("mode", "light-mode");
+            $("body").removeClass("dark-mode");
+        });
+        $("#reset-mode-btn").click(function(){
+            localStorage.setItem("mode", "light-mode");
+            $("body").removeClass("dark-mode");
+        });
+    })(window.jQuery);
+</script>
+
+</body>
+</html>
