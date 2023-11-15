@@ -12,5 +12,5 @@ $subject = 'Form DAta Submission';
 $message = "Name: $name\nEmail:
 $email";
 
-//Send emailusing mail()function if(mail($to,$subject,$message)){echo 'Data sent successfully!';} else{echo 'Failed to send data.';}?>
+//Send email using mail()function if(mail($to,$subject,$message)){echo 'Data sent successfully!';} else{echo 'Failed to send data.';}?>
 '''
